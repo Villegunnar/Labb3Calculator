@@ -67,6 +67,8 @@ namespace Labb3Calculator
         }
         public static void CalculationForm()
         {
+            Calculator cal = new Calculator();
+
             while (calcFormMenu)
             {
                 Console.WriteLine("Choose your from of calculation\n1. Addition (+)\n2. Subtraction (-)\n3. Division(/)\n4. Multiplication(*)");
@@ -74,7 +76,7 @@ namespace Labb3Calculator
                 {
                     case "1":
                         Console.Clear();
-                        Addition();
+                        cal.Addition(input1, input2);
                         StoreCalculation("+");
                         PrintResult();
                         calcFormMenu = false;
@@ -82,21 +84,21 @@ namespace Labb3Calculator
                         break;
                     case "2":
                         Console.Clear();
-                        Subtraction();
+                        cal.Subtraction(input1, input2);
                         StoreCalculation("-");
                         PrintResult();
                         calcFormMenu = false;
                         break;
                     case "3":
                         Console.Clear();
-                        Division();
+                        cal.Division(input1, input2);
                         StoreCalculation("/");
                         PrintResult();
                         calcFormMenu = false;
                         break;
                     case "4":
                         Console.Clear();
-                        Multiplication();
+                        cal.Multiplication(input1, input2);
                         StoreCalculation("*");
                         PrintResult();
                         calcFormMenu = false;
@@ -117,30 +119,42 @@ namespace Labb3Calculator
         }
         public static void PrintResult()
         {
-            Console.WriteLine($"Your calculation: {resultString} \nPress enter to go back to menu...");
+            Console.WriteLine($"Your calculation: {resultString} \n\nYour result was : {result}\n\nPress enter to go back to menu...");
             Console.ReadLine();
             Console.Clear();
         }
 
 
-        public static double Addition()
+        public double Addition(double inputOne, double inputTwo)
         {
+            input1 = inputOne;
+            input2 = inputTwo;
+
             result = input1 + input2;
             return result;
 
         }
-        public static double Subtraction()
+        public double Subtraction(double inputOne, double inputTwo)
         {
+            input1 = inputOne;
+            input2 = inputTwo;
+
             result = input1 - input2;
             return result;
         }
-        public static double Multiplication()
+        public double Multiplication(double inputOne, double inputTwo)
         {
+            input1 = inputOne;
+            input2 = inputTwo;
+
             result = input1 * input2;
             return result;
         }
-        public static double Division()
+        public double Division(double inputOne, double inputTwo)
         {
+            input1 = inputOne;
+            input2 = inputTwo;
+
             result = input1 / input2;
             return result;
         }
